@@ -187,8 +187,11 @@ exports.createTextField = function (args) {
     });
 
     textField.keyboardToolbar = toolbar.getView();
-      return textField;
-    };
+
+    return textField;
+
+  }
+
 };
 
 exports.createView = function (args) {
