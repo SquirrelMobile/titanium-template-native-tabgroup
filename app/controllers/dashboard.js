@@ -107,6 +107,6 @@ function logout(){
 
 function handleOpen(e){
   if (OS_ANDROID) {
-    $.tabGroup.activity.actionBar.hide();
+    //$.tabGroup.activity.actionBar.hide();
   }
 }

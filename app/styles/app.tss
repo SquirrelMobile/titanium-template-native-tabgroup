@@ -26,8 +26,8 @@
 "Window": {
 	backgroundColor : Alloy.CFG.COLORS.main,
 	orientationModes: [Ti.UI.PORTRAIT],
-	fullscreen : false,
-	navBarHidden : true
+	//fullscreen : false,
+	//navBarHidden : true
 }
 
 "NavigationWindow" : {
@@ -35,7 +35,7 @@
 }
 
 "Window[platform=android]": {
-	theme : 'Theme.AppCompat.NoTitleBar',
+	//theme : 'Theme.AppCompat.NoTitleBar',
 	windowSoftInputMode: Titanium.UI.Android.SOFT_INPUT_ADJUST_PAN,
 }
 
@@ -78,7 +78,7 @@
 }
 
 'TabGroup': {
-	navBarHidden: true
+	//navBarHidden: true
 }
 
 ".back": {

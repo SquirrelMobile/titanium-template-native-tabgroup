@@ -1,3 +1,3 @@
 <Alloy>
-	<TabGroup id="tabGroup" onOpen="handleOpen" />
+	<TabGroup id="tabGroup" onOpen="handleOpen" theme="Theme.AppCompat.Light" />
 </Alloy>
