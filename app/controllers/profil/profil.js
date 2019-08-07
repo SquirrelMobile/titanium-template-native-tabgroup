@@ -9,27 +9,17 @@
  * Display profil view
  * @param  {Arguments} args Arguments passed to the controller
  */
-(function constructor(args){
-
-  $.navbar.load({
-    burger : {
-      visible : true
-    },
-    title : {
-      visible : true,
-      color : 'black',
-      text : L('account')
-    }
-  });
-
+(function constructor(args) {
   $.paging.setScrollableView($.scrollableView);
 
-  var photo = require('dao/variable').get('photo');
+  var photo = require("dao/variable").get("photo");
 
-  if(photo){
-    $.top.photo.image = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, photo).read();
+  if (photo) {
+    $.top.photo.image = Ti.Filesystem.getFile(
+      Ti.Filesystem.applicationDataDirectory,
+      photo
+    ).read();
   }
-
 })($.args);
 
 /**
@@ -38,15 +28,13 @@
  * @param  {type} e description
  * @return {type}   description
  */
-function openDialogCamera(e){
-
-  require('/media').openDialogCamera(function(photo,ext){
+function openDialogCamera(e) {
+  require("/media").openDialogCamera(function(photo, ext) {
     $.top.photo.image = photo;
-    var name  = require('/media').saveFile({
-      blob : photo,
-      ext : ext
+    var name = require("/media").saveFile({
+      blob: photo,
+      ext: ext
     });
-    require('dao/variable').set('photo', name);
+    require("dao/variable").set("photo", name);
   });
-
 }

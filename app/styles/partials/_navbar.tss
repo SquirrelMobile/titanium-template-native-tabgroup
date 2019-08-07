@@ -14,7 +14,6 @@
   backgroundImage: null,
   top : 2,
   bottom : 2,
-  visible: false
 }
 
 "#btnLeft": {
