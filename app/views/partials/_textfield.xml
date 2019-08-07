@@ -9,7 +9,7 @@
 			<TextField id="textfield" onPrevious="returnF" onChange="handleChange" onReturn="next" onFocus="handleFocus" module="xp.ui" height="Ti.UI.FILL" width="Ti.UI.FILL" />
 			<ImageView id="imageRight" right="5" class="img"></ImageView>
 			<Label id="lblRight" right="5" class="icon"></Label>
-			<View class="separator"></View>
+			<View class="separator" id="separator"></View>
 		</View>
 
 

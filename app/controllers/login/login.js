@@ -17,21 +17,46 @@
     });
   }
 
-  $.login.listener("return", function() {
-    $.password.focus();
-  });
-
-  $.password.listener("return", function() {
-    connect();
-  });
-
-  var _toFlag = false;
-  $.password.clickIconAction(function(e) {
-    $.password.setPasswordMask(_toFlag);
-    $.password.setIconAction(_toFlag ? "\uf070" : "\uf06e");
-    _toFlag = !_toFlag;
-  });
+  // $.login.listener("return", function() {
+  //   $.password.focus();
+  // });
+  //
+  // $.password.listener("return", function() {
+  //   connect();
+  // });
+  //
+  // var _toFlag = false;
+  // $.password.clickIconAction(function(e) {
+  //   $.password.setPasswordMask(_toFlag);
+  //   $.password.setIconAction(_toFlag ? "\uf070" : "\uf06e");
+  //   _toFlag = !_toFlag;
+  // });
 })($.args);
+
+function activePasswordMask(e) {
+  Alloy.Globals.log.info("activePasswordMask");
+
+  var isMasked = $.password.lblRight.text === "\uf06e";
+  $.password.textfield.setPasswordMask(isMasked);
+  $.password.lblRight = {
+    text: !isMasked ? "\uf06e" : "\uf070",
+    color: "gray"
+  };
+}
+
+/**
+ * next - focus next field
+ *
+ * @param  {object} e field
+ */
+function next(e) {
+  Alloy.Globals.log.info("next", e.source.next);
+  if ($[e.source.next]) $.form.getViewById(e.source.next).focus();
+}
+
+function previous(e) {
+  if ($[e.source.previous]) $.form.getViewById(e.source.previous).focus();
+}
 
 /**
  * openWin - open Signup or Lost password
@@ -67,7 +92,8 @@ function connect(e) {
   if (!require("core").valideEmail(login)) {
     Ti.UI.createAlertDialog({
       title: L("warning"),
-      message: L("emailInvalidMsg")
+      message: L("emailInvalidMsg"),
+      ok: L("ok")
     }).show();
     return false;
   }

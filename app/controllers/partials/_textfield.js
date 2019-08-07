@@ -9,17 +9,19 @@ $.textfield.fireEvent(
 var picker = null;
 var currentChoice = null;
 
+if (args.textfield) {
+  $.textfield.applyProperties(args.textfield);
+}
+if (args.container) {
+  $.container2.applyProperties(args.container);
+}
+if (args.separator) {
+  $.separator.applyProperties(args.separator);
+}
 if (args.imageLeft) {
   $.imageLeft.applyProperties(args.imageLeft);
   $.textfield.left = 34;
   $.imageLeft.visible = true;
-}
-if (args.hide) {
-  hide();
-}
-
-if (args.top) {
-  $.container.top = args.top;
 }
 
 if (args.lblRight) {
@@ -29,14 +31,6 @@ if (args.lblRight) {
   });
   $.textfield.right = 34;
   $.lblRight.visible = true;
-}
-
-if (args.left) {
-  $.container.left = args.left;
-}
-
-if (args.right) {
-  $.container.right = args.right;
 }
 
 if (args.required) {
