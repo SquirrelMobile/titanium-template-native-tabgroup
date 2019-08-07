@@ -227,3 +227,14 @@ exports.createView = function(args) {
     return Ti.UI.createView(args);
   }
 };
+
+exports.createOptionDialog = function(args) {
+  if (OS_ANDROID) {
+    var TiBottomSheet = require("ti.bottomsheet");
+    var optionDialog = TiBottomSheet.createOptionDialog(args);
+    return optionDialog;
+  } else {
+    var optionDialog = Ti.UI.createOptionDialog(args);
+    return optionDialog;
+  }
+};

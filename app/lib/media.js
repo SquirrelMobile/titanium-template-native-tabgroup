@@ -64,13 +64,13 @@
     },
     openDialogCamera: function(callback) {
       var cb = callback || function() {};
-
-      var dialog = Ti.UI.createAlertDialog({
-        title: L("media.dialog.title"),
-        message: L("media.dialog.message"),
-        buttonNames: [L("camera"), L("gallery"), L("cancel")],
-        cancel: 2
-      });
+      var opts = {
+        cancel: 6,
+        options: [L("camera"), L("gallery")],
+        selectedIndex: 6,
+        title: L("media.dialog.title")
+      };
+      var dialog = require("xp.ui").createOptionDialog(opts);
 
       dialog.addEventListener("click", function(e) {
         if (e.index === 0) {
