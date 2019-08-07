@@ -51,6 +51,8 @@
 	<string name="openPdf">Ouvrir un Pdf</string>
 	<string name="picker.name">Trier par nom</string>
 	<string name="picker.date">Trier par date</string>
+	<string name="picker.list">Liste</string>
+	<string name="picker.column">Colonne</string>
 	<string name="form.lastname">Nom</string>
 	<string name="form.firstname">Prénom</string>
 	<string name="form.email">Email</string>

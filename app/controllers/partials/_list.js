@@ -45,6 +45,7 @@ function handleClick(e) {
   var row = e.section.getItemAt(e.itemIndex),
     prop = row.properties;
 
+  Alloy.Globals.log.info(prop);
   $.trigger(
     "click",
     _.extend(prop, {

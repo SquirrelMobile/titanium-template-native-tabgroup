@@ -5,6 +5,8 @@
  */
 import { Photo } from "classes/photos";
 var currentData = [];
+var filter = null;
+var listType = "list";
 /**
  * @method Controller
  * Display home view, load home
@@ -13,18 +15,34 @@ var currentData = [];
 (function constructor(args) {
   load();
   $.list.header.on("change", function(e) {
-    populateData(e.row.val);
+    Alloy.Globals.log.info(e.row);
+    if (e.row.id === "filter") {
+      filter = e.row.val;
+      displayList();
+    }
+    if (e.row.id === "style") {
+      listType = e.row.val;
+      displayList();
+    }
   });
 })($.args);
+
+function displayList() {
+  if (listType === "list") {
+    populateData();
+  } else {
+    populateDatainColumn();
+  }
+}
 
 function load() {
   Alloy.Globals.Api.photos({}, function(response) {
     currentData = response;
-    populateData();
+    displayList();
   });
 }
 
-function populateData(filter) {
+function populateData() {
   var items = _.chain(currentData)
     .sortBy(function(obj) {
       var currentFilter = filter === "name" ? "title" : "id";
@@ -48,6 +66,50 @@ function populateData(filter) {
   $.list.load([Ti.UI.createListSection({ items: items })]);
 }
 
+function populateDatainColumn() {
+  var tab = [];
+  var data = _.sortBy(currentData, function(obj) {
+    var currentFilter = filter === "name" ? "title" : "id";
+    return obj[currentFilter];
+  });
+  for (var i = 0; i < data.length; i += 3) {
+    var photo1 = new Photo(data[i]);
+    var properties = {
+      elem1: photo1
+    };
+    var obj = {
+      template: "column",
+      elem1: {
+        image: photo1.thumbnailUrl
+      }
+    };
+    if (data[i + 1]) {
+      var photo2 = new Photo(data[i + 1]);
+      properties = _.extend(properties, {
+        elem2: photo2
+      });
+      obj["elem2"] = {
+        image: photo2.thumbnailUrl
+      };
+    }
+
+    if (data[i + 2]) {
+      var photo3 = new Photo(data[i + 2]);
+      properties = _.extend(properties, {
+        elem3: photo3
+      });
+      obj["elem3"] = {
+        image: photo3.thumbnailUrl
+      };
+    }
+    obj["properties"] = properties;
+
+    tab.push(obj);
+  }
+
+  $.list.load([Ti.UI.createListSection({ items: tab })]);
+}
+
 function handleClick(e) {
   var obj = {
     controller: "win",
@@ -62,10 +124,10 @@ function handleClick(e) {
         },
         title: {
           visible: true,
-          text: e.title
+          text: listType === "list" ? e.title : e[e.bindId].title
         }
       },
-      data: e
+      data: listType === "list" ? e : e[e.bindId]
     }
   };
   Alloy.Globals.events.trigger("openWindowInTab", obj);
