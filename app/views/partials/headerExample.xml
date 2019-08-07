@@ -1,0 +1,9 @@
+<Alloy>
+
+  <View height="53">
+
+    <Button class="btn" id="btnPdf" title="L('openPdf')" />
+
+  </View>
+
+</Alloy>

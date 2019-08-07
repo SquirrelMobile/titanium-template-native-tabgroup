@@ -48,4 +48,5 @@
 	<string name="media.dialog.message">Choose source :</string>
 	<string name="gallery">Photo gallery</string>
 	<string name="camera">Camera</string>
+	<string name="openPdf">Ouvrir un Pdf</string>
 </resources>

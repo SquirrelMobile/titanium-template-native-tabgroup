@@ -60,3 +60,40 @@ function handleClick(e) {
   };
   Alloy.Globals.events.trigger("openWindowInTab", obj);
 }
+
+var urlExample =
+  "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
+function headerClick(e) {
+  if (e.source.id === "btnPdf") {
+    Alloy.Globals.loading.show();
+    var client = Ti.Network.createHTTPClient({
+      onload: function(e) {
+        var f = Ti.Filesystem.getFile(
+          Ti.Filesystem.applicationDataDirectory,
+          "file.pdf"
+        );
+        f.write(this.responseData);
+        if (OS_IOS) {
+          var docViewer = Ti.UI.iOS.createDocumentViewer({ url: f.nativePath });
+          docViewer.show();
+        } else {
+          var win = $.UI.create("Window");
+          var pdfView = require("fr.squirrel.pdfview").createView({
+            height: Ti.UI.FILL,
+            width: Ti.UI.FILL,
+            file: f
+          });
+          win.add(pdfView);
+          win.open();
+        }
+
+        Alloy.Globals.loading.hide();
+      },
+      onerror: function(e) {
+        Alloy.Globals.loading.hide();
+      }
+    });
+    client.open("GET", urlExample);
+    client.send();
+  }
+}

@@ -20,7 +20,20 @@ control.addEventListener("refreshstart", function(e) {
   if (!args.noRefresh) {
     $.listview.setRefreshControl(control);
   }
+  if (args.header) {
+    $.header.add(Alloy.createController(args.header).getView());
+    $.header.height = Ti.UI.SIZE;
+  }
+
+  if (args.footer) {
+    $.footer.add(Alloy.createController(args.footer).getView());
+    $.footer.height = Ti.UI.SIZE;
+  }
 })($.args);
+
+function headerClick(e) {
+  $.trigger("headerClick", e);
+}
 
 /**
  * handleClick - description
