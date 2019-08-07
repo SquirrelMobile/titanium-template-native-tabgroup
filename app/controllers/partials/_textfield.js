@@ -60,7 +60,7 @@ if (args.isDate) {
 }
 
 if (args.hintTextTitle) {
-  $.textfield.hintText = "";
+  // $.textfield.hintText = "";
   var view = Ti.UI.createView({
     width: "100%",
     height: Ti.UI.SIZE,
@@ -155,7 +155,7 @@ function handleList(list) {
   }
   $.container2.addEventListener("click", function(e) {
     $.trigger("click");
-    require("/core").rippleEffect(e);
+    // require("/core").rippleEffect(e);
     if (list) {
       if (OS_IOS) {
         Alloy.createController("/partials/_picker", {
@@ -235,6 +235,11 @@ function next(e) {
 function handleClick(e) {
   $.trigger("click");
 }
+
+function focus() {
+  $.textfield.focus();
+}
+$.focus = focus;
 
 function handleFocus(e) {
   if (args.isList) {

@@ -14,17 +14,19 @@ var listType = "list";
  */
 (function constructor(args) {
   load();
-  $.list.header.on("change", function(e) {
-    Alloy.Globals.log.info(e.row);
-    if (e.row.id === "filter") {
-      filter = e.row.val;
-      displayList();
-    }
-    if (e.row.id === "style") {
-      listType = e.row.val;
-      displayList();
-    }
-  });
+  if (OS_ANDROID) {
+    $.list.header.on("change", function(e) {
+      Alloy.Globals.log.info(e.row);
+      if (e.row.id === "filter") {
+        filter = e.row.val;
+        displayList();
+      }
+      if (e.row.id === "style") {
+        listType = e.row.val;
+        displayList();
+      }
+    });
+  }
 })($.args);
 
 function displayList() {
@@ -167,5 +169,16 @@ function headerClick(e) {
     });
     client.open("GET", urlExample);
     client.send();
+  }
+}
+
+function handleChange(e) {
+  if (e.row.id === "filter") {
+    filter = e.row.val;
+    displayList();
+  }
+  if (e.row.id === "style") {
+    listType = e.row.val;
+    displayList();
   }
 }

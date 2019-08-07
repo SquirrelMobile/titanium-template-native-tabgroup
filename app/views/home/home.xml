@@ -1,5 +1,5 @@
 <Alloy>
 	<View class="container">
-		<Require src="/partials/_list" id="list" header="/partials/headerExample" onHeaderClick="headerClick" onRefresh="load" onClick="handleClick"></Require>
+		<Require src="/partials/_list" onHeaderChange="handleChange" id="list" header="/partials/headerExample" onHeaderClick="headerClick" onRefresh="load" onClick="handleClick"></Require>
 	</View>
 </Alloy>

@@ -21,7 +21,11 @@ control.addEventListener("refreshstart", function(e) {
     $.listview.setRefreshControl(control);
   }
   if (args.header) {
-    $.header.add(Alloy.createController(args.header).getView());
+    $.header.add(
+      Alloy.createController(args.header)
+        .on("change", headerChange)
+        .getView()
+    );
     $.header.height = Ti.UI.SIZE;
   }
 
@@ -109,3 +113,9 @@ $.load = function(sections) {
 $.getControl = function() {
   return control;
 };
+
+function headerChange(e) {
+  if (OS_IOS) {
+    $.trigger("headerChange", { row: e });
+  }
+}

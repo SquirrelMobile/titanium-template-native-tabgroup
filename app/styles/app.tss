@@ -24,6 +24,7 @@
 }
 
 "Window": {
+	navBarHidden: true,
 	backgroundColor : Alloy.CFG.COLORS.main,
 	orientationModes: [Ti.UI.PORTRAIT],
 	//fullscreen : false,

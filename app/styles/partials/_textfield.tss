@@ -30,7 +30,7 @@
 '.icon': {
   font: {
     fontSize: 14,
-    fontFamily: Alloy.CFG.FONTS.falight
+    fontFamily: Alloy.CFG.FONTS.fa
   },
   text : "\uf107",
   visible : false,

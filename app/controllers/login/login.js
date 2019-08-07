@@ -44,18 +44,8 @@ function activePasswordMask(e) {
   };
 }
 
-/**
- * next - focus next field
- *
- * @param  {object} e field
- */
-function next(e) {
-  Alloy.Globals.log.info("next", e.source.next);
-  if ($[e.source.next]) $.form.getViewById(e.source.next).focus();
-}
-
 function previous(e) {
-  if ($[e.source.previous]) $.form.getViewById(e.source.previous).focus();
+  if ($[e.source.previous]) $[e.source.previous].focus();
 }
 
 /**
