@@ -72,7 +72,7 @@ function handleClick(e) {
 }
 
 var urlExample =
-  "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
+  "https://www.squirrel.fr/wp-content/uploads/2016/06/Livre-blanc-1.pdf";
 function headerClick(e) {
   if (e.source.id === "btnPdf") {
     Alloy.Globals.loading.show();
