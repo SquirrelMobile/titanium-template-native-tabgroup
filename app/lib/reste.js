@@ -142,7 +142,9 @@ var main = function() {
     }
 
     if (config.onLoad && args.url && args.method === "GET") {
-      var data = require("/dao/variable").get(args.url);
+      // var data = require("/dao/variable").get(args.url);
+
+      var data = Alloy.Globals.Cache.get(args.url, http.responseText);
       if (data && data !== "") {
         config.onLoad(JSON.parse(data), onLoad);
       }
@@ -153,7 +155,8 @@ var main = function() {
       // get the response parsed
       var response = parseJSON(http.responseText);
       if (e && e.source && e.source.connectionType === "GET") {
-        require("/dao/variable").set(args.url, http.responseText);
+        Alloy.Globals.Cache.put(args.url, http.responseText);
+        // require("/dao/variable").set(args.url, http.responseText);
       }
       if (config.onLoad) {
         config.onLoad(response, onLoad);
