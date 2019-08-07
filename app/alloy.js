@@ -1,5 +1,10 @@
 console.log("DIRECTORY IS => " + Ti.Filesystem.applicationDataDirectory);
 require("ti.detect");
+var AvImageview = require("av.imageview");
+Alloy.Globals.log = require("/log");
+Alloy.Globals.CONTENT_MODE_FIT = AvImageview.CONTENT_MODE_ASPECT_FIT;
+Alloy.Globals.CONTENT_MODE_FILL = AvImageview.CONTENT_MODE_ASPECT_FILL;
+
 Alloy.Globals.events = _.clone(Backbone.Events);
 Alloy.Globals.moment = require("moment");
 Alloy.Globals.moment.locale(Ti.Locale.currentLanguage);

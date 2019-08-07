@@ -11,6 +11,7 @@
   <fullscreen>false</fullscreen>
   <navbar-hidden>true</navbar-hidden>
   <analytics>false</analytics>
+  <transpile>true</transpile>
   <guid>11111111-1111-1111-1111-111111111111</guid>
   <property name="ti.ui.defaultunit" type="string">dp</property>
   <property name="run-on-main-thread" type="bool">true</property>
@@ -89,7 +90,6 @@
   </mobileweb>
   <modules>
     <module>av.imageview</module>
-    <module>ti.imagefactory</module>
     <module>ti.compression</module>
     <module>com.williamrijksen.onesignal</module>
     <module platform="android">com.skypanther.tirotate</module>

@@ -4,25 +4,23 @@
  *
  */
 
-
- var control = Ti.UI.createRefreshControl({
-     tintColor: Alloy.CFG.COLORS.main
- });
- control.addEventListener('refreshstart',function(e){
-     $.trigger('refresh', e);
- });
+var control = Ti.UI.createRefreshControl({
+  tintColor: Alloy.CFG.COLORS.main
+});
+control.addEventListener("refreshstart", function(e) {
+  $.trigger("refresh", e);
+});
 
 /**
  * @method Controller
  * Display list view
  * @param  {Arguments} args Arguments passed to the controller
  */
-(function constructor(args){
-
-  $.listview.setRefreshControl(control);
-
+(function constructor(args) {
+  if (!args.noRefresh) {
+    $.listview.setRefreshControl(control);
+  }
 })($.args);
-
 
 /**
  * handleClick - description
@@ -30,15 +28,21 @@
  * @param  {type} e description
  * @return {type}   description
  */
-function handleClick(e){
-
+function handleClick(e) {
   var row = e.section.getItemAt(e.itemIndex),
-      prop = row.properties;
+    prop = row.properties;
 
-  $.trigger('click', prop);
-
+  $.trigger(
+    "click",
+    _.extend(prop, {
+      source: e.source,
+      row: row,
+      bindId: e.bindId,
+      sectionIndex: e.sectionIndex,
+      itemIndex: e.itemIndex
+    })
+  );
 }
-
 
 /**
  * marker - description
@@ -46,12 +50,13 @@ function handleClick(e){
  * @param  {type} e description
  * @return {type}   description
  */
-function marker(e){
-
-    $.trigger('marker', e);
-
+function marker(e) {
+  $.trigger("marker", e);
 }
 
+$.beginRefreshing = function() {
+  control.beginRefreshing();
+};
 
 /**
  * addMarkerlist - description
@@ -59,10 +64,9 @@ function marker(e){
  * @param  {type} section description
  * @return {type}         description
  */
-$.addMarkerlist = function(section){
-    $.listview.addMarker(section);
+$.addMarkerlist = function(section) {
+  $.listview.addMarker(section);
 };
-
 
 /**
  * addItemSection - description
@@ -70,10 +74,9 @@ $.addMarkerlist = function(section){
  * @param  {type} section description
  * @return {type}         description
  */
-$.addItemSection = function(section){
-    $.listview.appendSection(section);
+$.addItemSection = function(section) {
+  $.listview.appendSection(section);
 };
-
 
 /**
  * load - description
@@ -81,16 +84,14 @@ $.addItemSection = function(section){
  * @param  {type} sections description
  * @return {type}          description
  */
-$.load = function(sections){
-    $.listview.setSections(sections);
+$.load = function(sections) {
+  $.listview.setSections(sections);
 
-    _.defer(function(){
-      control.endRefreshing();
-    });
+  _.defer(function() {
+    control.endRefreshing();
+  });
 };
 
-$.getControl = function(){
-
+$.getControl = function() {
   return control;
-
 };

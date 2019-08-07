@@ -2,14 +2,7 @@
 		<ListView id="listview" defaultItemTemplate="default" separatorColor="transparent" onItemclick="handleClick" onMarker="marker">
 
 			<Templates>
-
-				<ItemTemplate name="default" height="80">
-					<View class="vrow">
-						 <Label bindId="title" class="lbl" />
-						 <View class="separator" />
-					</View>
-				</ItemTemplate>
-
+				<Require src="/templateList/photos"></Require>
 			</Templates>
 
 		</ListView>
