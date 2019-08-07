@@ -4,6 +4,11 @@
  *
  */
 
+import { User } from "/classes/user";
+
+Alloy.Globals.currentUser = Ti.App.Properties.getObject("user", null)
+  ? new User(Ti.App.Properties.getObject("user"))
+  : null;
 /**
  * @method Controller
  * Display profil view
@@ -11,14 +16,9 @@
  */
 (function constructor(args) {
   $.paging.setScrollableView($.scrollableView);
-
-  var photo = require("dao/variable").get("photo");
-
-  if (photo) {
-    $.top.photo.image = Ti.Filesystem.getFile(
-      Ti.Filesystem.applicationDataDirectory,
-      photo
-    ).read();
+  if (Alloy.Globals.currentUser) {
+    $.top.photo.image = Alloy.Globals.currentUser.getAvatar();
+    $.top.name.text = Alloy.Globals.currentUser.getFullName();
   }
 })($.args);
 

@@ -41,8 +41,11 @@
 }
 
 "Button[platform=android]": {
-	backgroundColor: "transparent",
-	backgroundSelectedColor: "#cccccc"
+	backgroundColor: Alloy.CFG.COLORS.main,
+	touchFeedback: true,
+	touchFeedbackColor: "#EEEEEE",
+	/* elevation: 10 */
+	/* backgroundSelectedColor: "#cccccc" */
 }
 
 "ScrollView":{

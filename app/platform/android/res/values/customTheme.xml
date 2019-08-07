@@ -48,6 +48,6 @@
   <color name="primaryDark">#222222</color>
   <color name="textPrimary">#222222</color>
   <color name="accent">#f15b2a</color>
-  <color name="colorHighlight">#222222</color>
+  <color name="colorHighlight">#EEEEEE</color>
 </resources>
 <!-- http://www.appcelerator.com/blog/2015/07/understanding-the-android-material-theme/ -->
