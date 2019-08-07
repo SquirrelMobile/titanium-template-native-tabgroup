@@ -74,8 +74,4 @@ function focus(e) {
   }
 }
 
-function handleOpen(e) {
-  if (OS_ANDROID) {
-    $.tabGroup.activity.actionBar.hide();
-  }
-}
+function handleOpen(e) {}
