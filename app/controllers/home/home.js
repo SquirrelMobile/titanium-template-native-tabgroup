@@ -38,4 +38,25 @@ function load() {
   });
 }
 
-function handleClick(e) {}
+function handleClick(e) {
+  var obj = {
+    controller: "win",
+    data: {
+      controller: "partials/_detail",
+      navbar: {
+        btnLeft: {
+          visible: true
+        },
+        logo: {
+          visible: false
+        },
+        title: {
+          visible: true,
+          text: e.title
+        }
+      },
+      data: e
+    }
+  };
+  Alloy.Globals.events.trigger("openWindowInTab", obj);
+}
