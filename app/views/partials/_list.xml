@@ -5,6 +5,7 @@
 			</HeaderView>
 			<Templates>
 				<Require src="/templateList/photos"></Require>
+				<Require src="/templateList/columnsStyle" id="column" column="3"></Require>
 			</Templates>
 			<FooterView>
 				<View id="footer" height="10">

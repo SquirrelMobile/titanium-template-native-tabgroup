@@ -4,6 +4,7 @@
  *
  */
 import { Photo } from "classes/photos";
+var currentData = [];
 /**
  * @method Controller
  * Display home view, load home
@@ -11,31 +12,40 @@ import { Photo } from "classes/photos";
  */
 (function constructor(args) {
   load();
+  $.list.header.on("change", function(e) {
+    populateData(e.row.val);
+  });
 })($.args);
 
 function load() {
   Alloy.Globals.Api.photos({}, function(response) {
-    var items = _.chain(response)
-      .sortBy(function(obj) {
-        return obj.id;
-      })
-      .map(function(obj) {
-        var photo = new Photo(obj);
-        return {
-          properties: photo,
-          template: "photo",
-          title: {
-            text: photo.title
-          },
-          image: {
-            image: photo.thumbnailUrl
-          }
-        };
-      })
-      .value();
-
-    $.list.load([Ti.UI.createListSection({ items: items })]);
+    currentData = response;
+    populateData();
   });
+}
+
+function populateData(filter) {
+  var items = _.chain(currentData)
+    .sortBy(function(obj) {
+      var currentFilter = filter === "name" ? "title" : "id";
+      return obj[currentFilter];
+    })
+    .map(function(obj) {
+      var photo = new Photo(obj);
+      return {
+        properties: photo,
+        template: "photo",
+        title: {
+          text: photo.title
+        },
+        image: {
+          image: photo.thumbnailUrl
+        }
+      };
+    })
+    .value();
+
+  $.list.load([Ti.UI.createListSection({ items: items })]);
 }
 
 function handleClick(e) {

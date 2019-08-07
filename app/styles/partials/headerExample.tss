@@ -1,0 +1,6 @@
+
+'#filter': {
+  hintText: "filtrer",
+  isList : true,
+  data : [{text : "date"},{text : "name"}]
+}

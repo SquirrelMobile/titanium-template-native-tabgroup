@@ -49,4 +49,6 @@
 	<string name="gallery">Photo gallery</string>
 	<string name="camera">Camera</string>
 	<string name="openPdf">Ouvrir un Pdf</string>
+	<string name="picker.name">Trier par nom</string>
+	<string name="picker.date">Trier par date</string>
 </resources>

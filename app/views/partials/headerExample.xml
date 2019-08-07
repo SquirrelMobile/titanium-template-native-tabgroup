@@ -1,7 +1,9 @@
 <Alloy>
 
-  <View height="53">
-
+  <View height="90" layout="vertical">
+    <View height="Ti.UI.SIZE" width="180" right="0">
+      <Require src="/partials/_textfield" class="tfForm" id="filter"  ></Require>
+    </View>
     <Button class="btn" id="btnPdf" title="L('openPdf')" />
 
   </View>
