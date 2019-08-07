@@ -79,7 +79,8 @@
 }
 
 'TabGroup': {
-	//navBarHidden: true
+	navBarHidden: true,
+	orientationModes : [Ti.UI.PORTRAIT]
 }
 
 ".back": {

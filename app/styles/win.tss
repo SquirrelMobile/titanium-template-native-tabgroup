@@ -6,3 +6,7 @@
 '#win[platform=android]': {
   activityEnterTransition:Ti.UI.Android.TRANSITION_SLIDE_BOTTOM
 }
+
+'#win[platform=ios]': {
+  navBarHidden:true
+}

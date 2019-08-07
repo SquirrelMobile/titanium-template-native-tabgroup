@@ -3,7 +3,15 @@ var args = $.args;
 var currentController = null;
 var objTab = {};
 
-(function constructor(args) {})(args);
+(function constructor(args) {
+  if (OS_ANDROID) {
+    $.tabGroup.addEventListener("androidback", function() {});
+  } else {
+    $.tabGroup.hideNavBar();
+  }
+  Alloy.Globals.events.off("popToRootWindow");
+  Alloy.Globals.events.off("openWindowInTab");
+})(args);
 
 function closeToRoot() {
   $.tabGroup.activeTab.popToRootWindow();

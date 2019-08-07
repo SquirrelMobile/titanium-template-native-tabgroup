@@ -9,7 +9,6 @@
 
 'TabGroup[platform=ios]': {
   navbarHidden: true,
-  tabBarHidden : true,
   tabsTintColor  : Alloy.CFG.COLORS.main,
   unselectedItemTintColor  : "black"
 }

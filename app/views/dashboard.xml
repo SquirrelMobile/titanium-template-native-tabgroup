@@ -1,7 +1,7 @@
 <Alloy>
-	<TabGroup id="tabGroup"  theme="Theme.Custom" onOpen="handleOpen"  navbarHidden="true" tabBarHidden="true" backgroundColor="white" onFocus="focus" >
-        <Tab id="home" navbarHidden="true" >
-            <Window id="homeCtrl" navbarHidden="true" >
+	<TabGroup id="tabGroup"  theme="Theme.Custom" navBarHidden="true" onOpen="handleOpen"  backgroundColor="white" onFocus="focus" >
+        <Tab id="home"  >
+            <Window id="homeCtrl" navBarHidden="true"  >
 							<View layout="vertical">
 								<Require src="/partials/_navbar" class="navbar" ></Require>
 								<View id="homeContent" opacity="0">
@@ -10,8 +10,8 @@
 							</View>
             </Window>
         </Tab>
-        <Tab id="account" navbarHidden="true" >
-            <Window id="accountCtrl" navbarHidden="true" title="Tab 2">
+        <Tab id="account"  >
+            <Window id="accountCtrl" navBarHidden="true" >
 							<View layout="vertical">
 								<Require src="/partials/_navbar" class="navbar" ></Require>
 								<View id="accountContent" opacity="0" >
