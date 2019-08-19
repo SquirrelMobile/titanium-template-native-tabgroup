@@ -26,10 +26,10 @@ if (!OS_IOS) {
         ? options.displayHomeAsUp
         : that.args.displayHomeAsUp;
 
-    if (OS_ANDROID && options.animated !== false) {
-      options.activityEnterAnimation = Ti.Android.R.anim.slide_in_left;
-      options.activityExitAnimation = Ti.Android.R.anim.slide_out_right;
-    }
+    // if (OS_ANDROID && options.animated !== false) {
+    //   options.activityEnterAnimation = Ti.Android.R.anim.slide_in_left;
+    //   options.activityExitAnimation = Ti.Android.R.anim.slide_out_right;
+    // }
 
     // if (options.swipeBack !== false) {
     //     window.addEventListener('swipe', function (e) {
@@ -215,14 +215,24 @@ exports.createView = function(args) {
       return Ti.UI.Android.createCardView(_.extend(args, opt));
     }
   } else if (args.clickStyle) {
-    var view = Ti.UI.createView(args);
-    view.addEventListener("touchStart", function() {
-      view.opacity = 0.3;
-    });
-    view.addEventListener("touchEnd", function() {
-      view.opacity = args.opacity ? args.opacity : 1;
-    });
-    return view;
+    if (OS_IOS) {
+      var view = Ti.UI.createView(args);
+      view.addEventListener("touchStart", function() {
+        view.opacity = 0.3;
+      });
+      view.addEventListener("touchEnd", function() {
+        view.opacity = args.opacity ? args.opacity : 1;
+      });
+      return view;
+    } else {
+      return Ti.UI.createView(
+        _.extend(args, {
+          backgroundColor: "white",
+          touchFeedback: true,
+          touchFeedbackColor: Alloy.CFG.COLORS.main
+        })
+      );
+    }
   } else {
     return Ti.UI.createView(args);
   }

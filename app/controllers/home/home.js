@@ -13,7 +13,11 @@ var listType = "list";
  * @param  {Arguments} args Arguments passed to the controller
  */
 (function constructor(args) {
-  load();
+  Alloy.CFG.baseurl = "https://jsonplaceholder.typicode.com";
+  require("net/apiconfig").init();
+  _.defer(function() {
+    load();
+  });
   if (OS_ANDROID) {
     $.list.header.on("change", function(e) {
       Alloy.Globals.log.info(e.row);
@@ -53,7 +57,9 @@ function populateData() {
     .map(function(obj) {
       var photo = new Photo(obj);
       return {
-        properties: photo,
+        properties: _.extend(photo, {
+          accessoryType: Titanium.UI.LIST_ACCESSORY_TYPE_DISCLOSURE
+        }),
         template: "photo",
         title: {
           text: photo.title

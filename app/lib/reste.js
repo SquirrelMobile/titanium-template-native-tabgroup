@@ -146,7 +146,10 @@ var main = function() {
 
       var data = Alloy.Globals.Cache.get(args.url, http.responseText);
       if (data && data !== "") {
-        config.onLoad(JSON.parse(data), onLoad);
+        try {
+          dataParse = JSON.parse(data);
+          config.onLoad(dataParse, onLoad);
+        } catch (e) {}
       }
     }
 
@@ -155,6 +158,9 @@ var main = function() {
       // get the response parsed
       var response = parseJSON(http.responseText);
       if (e && e.source && e.source.connectionType === "GET") {
+        if (data === http.responseText) {
+          return false;
+        }
         Alloy.Globals.Cache.put(args.url, http.responseText);
         // require("/dao/variable").set(args.url, http.responseText);
       }

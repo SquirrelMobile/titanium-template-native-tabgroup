@@ -13,6 +13,9 @@
   $.navbar.load({
     btnLeft: {
       visible: true
+    },
+    nav: {
+      backgroundColor: "white"
     }
   });
 })($.args);

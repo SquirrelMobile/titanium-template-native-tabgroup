@@ -4,7 +4,7 @@
 }
 
 '#win[platform=android]': {
-  activityEnterTransition:Ti.UI.Android.TRANSITION_SLIDE_BOTTOM
+  activityEnterTransition:Ti.UI.Android.TRANSITION_SLIDE_LEFT
 }
 
 '#win[platform=ios]': {
