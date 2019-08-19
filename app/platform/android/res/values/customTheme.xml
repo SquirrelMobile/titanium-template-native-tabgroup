@@ -23,6 +23,7 @@
       <item name="android:textColorPrimary">@color/textPrimary</item>
 			<item name="android:windowBackground">@drawable/background</item>
       <item name="android:windowAnimationStyle">@style/defaultAnimation</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="Theme.Login" parent="@style/Theme.AppCompat.Light.NoActionBar">

@@ -12,7 +12,8 @@
 (function constructor(args) {
   $.navbar.load({
     btnLeft: {
-      visible: true
+      visible: true,
+      backgroundColor: "white"
     },
     nav: {
       backgroundColor: "white"
