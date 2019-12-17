@@ -87,14 +87,6 @@
       </application>
     </manifest>
   </android>
-  <mobileweb>
-    <precache/>
-    <splash>
-      <enabled>true</enabled>
-      <inline-css-images>true</inline-css-images>
-    </splash>
-    <theme>default</theme>
-  </mobileweb>
   <modules>
     <module>av.imageview</module>
     <module>ti.animation</module>
