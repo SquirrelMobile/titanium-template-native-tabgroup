@@ -20,3 +20,10 @@
 "#scrollableView": {
   height: Ti.UI.FILL
 }
+
+
+'.navbar': {
+  logo : {
+    visible : true
+  }
+}

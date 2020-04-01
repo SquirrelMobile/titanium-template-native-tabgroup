@@ -1,7 +1,7 @@
 <Alloy>
-	<View id="win" class="container">
+	<Window class="container">
 
-
+		<Require src="partials/_navbar" class="navbar" />
 		<Require id="top" src="profil/_top" onOpenMedia="openDialogCamera" />
 
 		<View height="5"/>
@@ -13,5 +13,5 @@
 			<View title="Tab 2" backgroundColor="blue" />
 		</ScrollableView>
 
-	</View>
+	</Window>
 </Alloy>
