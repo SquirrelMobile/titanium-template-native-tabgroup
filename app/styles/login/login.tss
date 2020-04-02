@@ -9,9 +9,13 @@
   color : Alloy.CFG.COLORS.main
 }
 
-".btn": {
-  top : 25,
-  title:  L('validate')
+".btnsignup": {
+  width : 185,
+  font : { fontFamily: Alloy.CFG.FONTS.light, fontSize: 15 },
+  color : "white",
+  height: 50,
+  backgroundColor: Alloy.CFG.COLORS.main2,
+  borderRadius: 5,
 }
 
 "#login": {

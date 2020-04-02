@@ -38,3 +38,11 @@ function openDialogCamera(e) {
 		require("dao/variable").set("photo", name);
 	});
 }
+
+function logout(e) {
+	Ti.App.Properties.removeAllProperties();
+	require("/dao/database").reset("variable");
+	Alloy.createController("/login/login", { closeApp: true })
+		.getView()
+		.open();
+}

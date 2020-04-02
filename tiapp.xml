@@ -67,6 +67,8 @@
             <string>en</string>
             <string>fr</string>
         </array>
+        <key>UIUserInterfaceStyle</key>
+        <string>Light</string>
       </dict>
     </plist>
   </ios>
@@ -103,7 +105,7 @@
     <target device="iphone">true</target>
     <target device="mobileweb">false</target>
   </deployment-targets>
-  <sdk-version>8.3.0.GA</sdk-version>
+  <sdk-version>9.0.0.GA</sdk-version>
   <plugins>
     <plugin>ti.alloy</plugin>
   </plugins>

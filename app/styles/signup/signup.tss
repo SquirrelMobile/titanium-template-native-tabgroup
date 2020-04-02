@@ -106,3 +106,13 @@
     }
   ]
 }
+
+".navbar": {
+  btnLeft: {
+    visible: true,
+    backgroundColor: "white"
+  },
+  nav: {
+    backgroundColor: "white"
+  }
+}

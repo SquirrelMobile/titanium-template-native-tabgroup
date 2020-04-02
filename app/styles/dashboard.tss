@@ -21,12 +21,12 @@
 }
 
 "Tab":{
-  activeTitleColor : Alloy.CFG.COLORS.black,
+  activeTitleColor : Alloy.CFG.COLORS.main,
   tintColor : Alloy.CFG.COLORS.main,
   touchFeedback: true,
   activeIconIsMask : true,
   touchFeedbackColor: Alloy.CFG.COLORS.black,
-  titleColor: Alloy.CFG.COLORS.main
+  titleColor: Alloy.CFG.COLORS.black
 }
 
 

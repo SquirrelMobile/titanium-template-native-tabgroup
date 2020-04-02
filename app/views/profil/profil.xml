@@ -9,7 +9,9 @@
 		<Widget id="paging" src="de.manumaticx.pagingcontrol" />
 
 		<ScrollableView id="scrollableView">
-			<View title="Tab 1" backgroundColor="red" />
+			<View title="Tab 1" backgroundColor="red">
+				<Button bottom="10" class="btn" title="logout" onClick="logout"></Button>
+			</View>
 			<View title="Tab 2" backgroundColor="blue" />
 		</ScrollableView>
 

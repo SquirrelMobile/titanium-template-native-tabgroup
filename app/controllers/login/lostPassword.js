@@ -9,50 +9,34 @@
  * Display lostPassword view
  * @param  {Arguments} args Arguments passed to the controller
  */
-(function constructor(args){
-
-  $.navbar.load({
-    btnLeft : {
-      visible : true
-    },
-    logo : {
-      visible : true
-    }
-  });
-
-})($.args);
-
+(function constructor(args) {})($.args);
 
 /**
  * submit - submit function
  *
  * @param  {type} e description
  */
-function submit(e){
+function submit(e) {
+	var email = $.email.getValue();
 
-  var email = $.email.getValue();
+	if (!require("core").valideEmail(email)) {
+		Ti.UI.createAlertDialog({
+			title: L("warning"),
+			message: L("emailInvalidMsg"),
+		}).show();
+		return false;
+	}
 
-  if(!require('core').valideEmail(email)){
-    Ti.UI.createAlertDialog({
-      title : L('warning'),
-      message : L('emailInvalidMsg')
-    }).show();
-    return false;
-  }
-
-  //Alloy.Globals.loading.show(L('loading'));
-  /*Alloy.Globals.Api.lostPassword({body :{email : email }}, function(e){
+	//Alloy.Globals.loading.show(L('loading'));
+	/*Alloy.Globals.Api.lostPassword({body :{email : email }}, function(e){
 
   });*/
-  Ti.UI.createAlertDialog({
-    title : L('confirmation'),
-    message : L('emailSendMsg')
-  }).show();
-  close();
-
-
+	Ti.UI.createAlertDialog({
+		title: L("confirmation"),
+		message: L("emailSendMsg"),
+	}).show();
+	close();
 }
-
 
 /**
  * close - Close the window
@@ -60,6 +44,6 @@ function submit(e){
  * @param  {type} e description
  * @return {type}   description
  */
-function close(e){
-  $.win.close();
+function close(e) {
+	$.win.close();
 }
