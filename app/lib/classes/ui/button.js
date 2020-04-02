@@ -4,7 +4,7 @@
  *
  */
 
-import { underline } from "/classes/ui/attrstring";
+import { underlineall } from "/classes/ui/attrstring";
 
 class Button {
 	/**
@@ -84,7 +84,7 @@ class Button {
 		}
 
 		if (obj.underline && obj.label.text) {
-			this.label.attributedString = require("core").getAttributed(underline(args.label.text));
+			this.label.attributedString = require("core").getAttributed(underlineall(args.label.text));
 		}
 
 		this.parent.addEventListener("touchstart", e => {
