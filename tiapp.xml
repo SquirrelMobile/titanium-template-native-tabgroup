@@ -92,9 +92,10 @@
   <modules>
     <module>av.imageview</module>
     <module>ti.animation</module>
-    <module platform="android">ti.bottomsheet</module>
     <module>ti.compression</module>
     <module>com.williamrijksen.onesignal</module>
+    <module>ti.notificationbanner</module>
+    <module platform="android">ti.bottomsheet</module>
     <module platform="android">com.skypanther.tirotate</module>
     <module platform="android">org.iotashan.TiTouchImageView</module>
     <module platform="android">fr.squirrel.pdfview</module>

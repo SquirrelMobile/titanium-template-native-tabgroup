@@ -62,7 +62,7 @@ if (OS_IOS) {
 }
 
 //enable push notification with OneSignal
-//require("net/onesignalpns")();
+//require("net/onesignalpns").init();
 
 //appc new --import --no-services
 // adb logcat | grep TiAPI

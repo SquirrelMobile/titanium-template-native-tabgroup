@@ -46,7 +46,6 @@ class RatingView {
 	}
 
 	get value() {
-		console.log("that.ratingvalue " + this.ratingvalue);
 		return this.ratingvalue;
 	}
 

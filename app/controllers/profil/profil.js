@@ -5,6 +5,7 @@
  */
 
 import { User } from "/classes/user";
+import NotificationBanner from "ti.notificationbanner";
 
 Alloy.Globals.currentUser = Ti.App.Properties.getObject("user", null)
 	? new User(Ti.App.Properties.getObject("user"))
@@ -49,4 +50,18 @@ function logout(e) {
 
 function getRating(e) {
 	alert($.rating.super().value);
+}
+
+function showsbannernotification() {
+	NotificationBanner.show({
+		title: "Titanium rocks!",
+		duration: 5,
+		// iOS only for now
+		subtitle: "It seriously does",
+		backgroundColor: Alloy.CFG.COLORS.main,
+		//image: "",
+		onClick: function() {
+			alert("click on alert");
+		},
+	});
 }

@@ -13,6 +13,8 @@ var listType = "list";
  * @param  {Arguments} args Arguments passed to the controller
  */
 (function constructor(args) {
+	require("net/onesignalpns").subscribe();
+
 	Alloy.CFG.baseurl = "https://jsonplaceholder.typicode.com";
 	require("net/apiconfig").init();
 	_.defer(function() {
