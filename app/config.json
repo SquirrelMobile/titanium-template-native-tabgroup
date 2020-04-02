@@ -27,13 +27,13 @@
 		"logEnable": true
 	},
 	"env:development": {
-		"baseurl": "http://www.squirrel.fr"
+		"baseurl": "https://www.squirrel.fr"
 	},
 	"env:test": {
-		"baseurl": "http://www.squirrel.fr"
+		"baseurl": "https://www.squirrel.fr"
 	},
 	"env:production": {
-		"baseurl": "http://www.squirrel.fr"
+		"baseurl": "https://www.squirrel.fr"
 	},
 	"os:android": {},
 	"os:blackberry": {},
@@ -43,9 +43,9 @@
 	"dependencies": {
 		"nl.fokkezb.loading": "*",
 		"de.manumaticx.pagingcontrol": "*",
-		"input-materialdesign": "*",
 		"fr.squirrel.tutorial": "*",
 		"com.caffeinalab.titanium.calendar": "*",
-		"fr.squirrel.zoomimage": "*"
+		"fr.squirrel.zoomimage": "*",
+		"com.alcoapps.socialshare": "*"
 	}
 }

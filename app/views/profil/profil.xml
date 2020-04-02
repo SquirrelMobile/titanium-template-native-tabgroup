@@ -9,9 +9,10 @@
 		<Widget id="paging" src="de.manumaticx.pagingcontrol" />
 
 		<ScrollableView id="scrollableView">
-			<View title="Tab 1" backgroundColor="red">
-				<Button bottom="10" class="btn" title="logout" onClick="logout"></Button>
-				<Button class="btn" onClick="showsbannernotification" top="30">Display alert</Button>
+			<View title="Tab 1" backgroundColor="red" layout="vertical">
+				<Button top="10" class="btn" onClick="logout">Logout</Button>
+				<Button class="btn" onClick="showsbannernotification" top="10">Display alert</Button>
+				<Button class="btn" onClick="share" top="10">Share app</Button>
 			</View>
 			<View title="Tab 2" backgroundColor="white">
 				<RatingView module="classes/ui/ratingsView" id="rating" />

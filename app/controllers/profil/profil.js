@@ -6,6 +6,7 @@
 
 import { User } from "/classes/user";
 import NotificationBanner from "ti.notificationbanner";
+var socialWidget = Alloy.createWidget("com.alcoapps.socialshare");
 
 Alloy.Globals.currentUser = Ti.App.Properties.getObject("user", null)
 	? new User(Ti.App.Properties.getObject("user"))
@@ -63,5 +64,12 @@ function showsbannernotification() {
 		onClick: function() {
 			alert("click on alert");
 		},
+	});
+}
+
+function share() {
+	socialWidget.share({
+		status: "This Axway Titanium is the best !",
+		androidDialogTitle: "Share !",
 	});
 }
