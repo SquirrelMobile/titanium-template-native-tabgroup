@@ -35,7 +35,6 @@ function load(conf) {
 	if (conf.btnLeft) {
 		$.btnLeft.applyProperties(conf.btnLeft);
 	}
-	console.log("btnLeft", $.btnLeft);
 
 	if (conf.btnRight) {
 		$.btnRight.applyProperties(conf.btnRight);

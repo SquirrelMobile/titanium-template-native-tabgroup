@@ -3,13 +3,23 @@
  * Display lostPassword view
  *
  */
-
+var champs = $.form.getChamps();
 /**
  * @method Controller
  * Display lostPassword view
  * @param  {Arguments} args Arguments passed to the controller
  */
-(function constructor(args) {})($.args);
+(function constructor(args) {
+	champs.email.addEventListener("change", handleBtnSend);
+
+	function handleBtnSend() {
+		if (champs.email.getValue() !== "") {
+			champs.valid.opacity = 1;
+		} else {
+			champs.valid.opacity = 0.3;
+		}
+	}
+})($.args);
 
 /**
  * submit - submit function
@@ -17,25 +27,15 @@
  * @param  {type} e description
  */
 function submit(e) {
-	var email = $.email.getValue();
-
-	if (!require("core").valideEmail(email)) {
-		Ti.UI.createAlertDialog({
-			title: L("warning"),
-			message: L("emailInvalidMsg"),
-		}).show();
+	if (!require("core").valideEmail(e.email)) {
+		require("core").alertSimple(L("warning"), L("emailInvalidMsg"));
 		return false;
 	}
 
-	//Alloy.Globals.loading.show(L('loading'));
-	/*Alloy.Globals.Api.lostPassword({body :{email : email }}, function(e){
-
-  });*/
-	Ti.UI.createAlertDialog({
-		title: L("confirmation"),
-		message: L("emailSendMsg"),
-	}).show();
-	close();
+	if (e.email) {
+		require("core").alertSimple(L("confirmation"), L("emailSendMsg"));
+		close();
+	}
 }
 
 /**

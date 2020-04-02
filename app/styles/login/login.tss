@@ -1,12 +1,13 @@
 
 ".container" : {
-  backgroundColor: "white"
+  backgroundColor: Alloy.CFG.COLORS.main,
 }
+
 
 ".titleLbl": {
   text: L('connexionTitle'),
   font : { fontFamily: Alloy.CFG.FONTS.light, fontSize: 24 },
-  color : Alloy.CFG.COLORS.main
+  color : Alloy.CFG.COLORS.black
 }
 
 ".btnsignup": {
@@ -52,7 +53,7 @@
 "#lostPassword": {
   text: L('forgotPassword'),
   font : { fontFamily: Alloy.CFG.FONTS.regular, fontSize: 15 },
-  color : Alloy.CFG.COLORS.main,
+  color : Alloy.CFG.COLORS.black,
   height: 40,
   top : 25
 }
