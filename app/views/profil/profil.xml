@@ -12,7 +12,11 @@
 			<View title="Tab 1" backgroundColor="red">
 				<Button bottom="10" class="btn" title="logout" onClick="logout"></Button>
 			</View>
-			<View title="Tab 2" backgroundColor="blue" />
+			<View title="Tab 2" backgroundColor="white">
+				<RatingView module="classes/ui/ratingsView" id="rating" />
+
+				<Button class="btn" onClick="getRating" bottom="30">Get rating</Button>
+			</View>
 		</ScrollableView>
 
 	</Window>

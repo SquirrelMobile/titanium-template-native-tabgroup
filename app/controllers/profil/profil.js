@@ -46,3 +46,7 @@ function logout(e) {
 		.getView()
 		.open();
 }
+
+function getRating(e) {
+	alert($.rating.super().value);
+}
