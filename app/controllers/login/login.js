@@ -19,25 +19,9 @@ var champs = $.form.getChamps();
 	}
 
 	champs.password.addEventListener("click", function(e) {
-		Ti.API.log("maskPassword", champs.password.passwordMask);
 		champs.password.passwordMask = !champs.password.passwordMask;
 		champs.password.setPasswordMask(champs.password.passwordMask);
 	});
-
-	// $.login.listener("return", function() {
-	//   $.password.focus();
-	// });
-	//
-	// $.password.listener("return", function() {
-	//   connect();
-	// });
-	//
-	// var _toFlag = false;
-	// $.password.clickIconAction(function(e) {
-	//   $.password.setPasswordMask(_toFlag);
-	//   $.password.setIconAction(_toFlag ? "\uf070" : "\uf06e");
-	//   _toFlag = !_toFlag;
-	// });
 })($.args);
 
 function previous(e) {
@@ -116,10 +100,10 @@ function next(e) {
 if (Ti.App.Properties.getBool("showTutorial")) {
 	var tutorial = Alloy.createWidget("fr.squirrel.tutorial", {
 		indicatorSelect: {
-			image: "/images/ellipseblue.png",
+			backgroundColor: "black",
 		},
 		indicatorUnselect: {
-			image: "/images/ellipseblueinactive.png",
+			backgroundColor: "white",
 		},
 		titleBtnStart: L("next"),
 		titleBtnEnd: L("close"),
