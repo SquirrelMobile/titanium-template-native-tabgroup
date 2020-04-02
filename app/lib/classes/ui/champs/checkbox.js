@@ -58,8 +58,9 @@ exports.createCheckbox = function(args) {
 	var checkBox = new CheckBox({
 		lblView: {
 			html: args.required ? args.text + " *" : args.text,
+			text: args.required ? args.text + " *" : args.text,
 			width: Ti.UI.FILL,
-			font: { fontFamily: "SourceSansPro-Regular", fontSize: 13 },
+			font: { fontFamily: Alloy.CFG.FONTS.regular, fontSize: 13 },
 			color: "#0A0C2A",
 		},
 	});
