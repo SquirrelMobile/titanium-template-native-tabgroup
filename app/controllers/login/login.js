@@ -24,10 +24,6 @@ var champs = $.form.getChamps();
 	});
 })($.args);
 
-function previous(e) {
-	if ($[e.source.previous]) $[e.source.previous].focus();
-}
-
 /**
  * openWin - open Signup or Lost password
  *
@@ -85,15 +81,6 @@ function connect(e) {
 		Ti.App.Properties.setBool("isConnected", true);
 		Alloy.createController("index").getView();
 	}
-}
-
-/**
- * next - focus next field
- *
- * @param  {object} e field
- */
-function next(e) {
-	if ($[e.source.next]) $[e.source.next].focus();
 }
 
 //TUTORIEL EXAMPLE

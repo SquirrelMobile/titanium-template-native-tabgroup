@@ -96,7 +96,7 @@
     {
       id: "cgu",
       color : Alloy.CFG.COLORS.black,
-      text:  "TEST",//L("form.cgu"),
+      text:  L("form.cgu"),
       type : "checkbox",
       required : true
     },
