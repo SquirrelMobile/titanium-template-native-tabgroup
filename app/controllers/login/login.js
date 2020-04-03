@@ -148,7 +148,6 @@ if (Ti.App.Properties.getBool("showTutorial")) {
 	];
 
 	$.win.addEventListener("open", function() {
-		this.removeEventListener("open", arguments.callee);
 		tutorial.setPages(pages);
 	});
 }
