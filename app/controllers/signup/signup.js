@@ -30,15 +30,6 @@ var champs = $.form.getChamps();
  * @return {type}   description
  */
 function submit(e) {
-	if (champs.password.getValue() !== champs.passwordConfirm.getValue()) {
-		require("core").alertSimple(L("warning"), L("password"));
-		return false;
-	}
-
-	if (!require("core").valideEmail(champs.email.getValue())) {
-		require("core").alertSimple(L("warning"), L("emailInvalidMsg"));
-		return false;
-	}
 	// Alloy.Globals.loading.show(L("loading"));
 	// //WS LOGIN
 	// Alloy.Globals.Api.signup({ body: _.omit(obj, "passwordConfirm") }, function(
