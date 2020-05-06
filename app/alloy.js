@@ -51,14 +51,20 @@ if (!ENV_PROD) {
 
 require("net/apiconfig").init();
 
-if (OS_IOS) {
-	Ti.App.addEventListener("resumed", function(e) {
-		setTimeout(function() {
+Ti.App.addEventListener("resumed", function(e) {
+	setTimeout(function() {
+		if (OS_IOS) {
 			Ti.UI.iOS.setAppBadge(0);
-		}, 500);
-	});
+		} else {
+			Ti.Android.NotificationManager.cancelAll();
+		}
+	}, 500);
+});
 
+if (OS_IOS) {
 	Ti.UI.iOS.setAppBadge(0);
+} else {
+	Ti.Android.NotificationManager.cancelAll();
 }
 
 //enable push notification with OneSignal
