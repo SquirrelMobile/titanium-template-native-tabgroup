@@ -438,6 +438,8 @@ Exemple usage :
 Get a simple textfield with passwordMask and icon on right for disable/enable the passwordMask
 
 ```
+- enabledIcon : set enabled icon
+- disabledIcon : set disabled icon
 - minLength : set the minimum length for password
 - textfield : access to textField view (Ti.UI.TextField)
 ```

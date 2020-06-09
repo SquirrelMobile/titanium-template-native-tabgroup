@@ -67,18 +67,6 @@
       required : true
     },
     {
-      id: "test",
-      switch : {
-        right: 0
-      },
-      label : {
-        left: 0,
-        text : "activer ?"
-      },
-      type : "switch",
-      required : true
-    },
-    {
       id: "valid",
       button : {
         top: 20,
