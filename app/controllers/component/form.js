@@ -123,6 +123,7 @@ function addField(e, i, size) {
 				"checkbox",
 				"buttonsMultiple",
 				"map",
+				"switch",
 			],
 			e.type,
 		) > -1

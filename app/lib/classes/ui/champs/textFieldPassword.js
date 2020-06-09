@@ -5,14 +5,17 @@ class TextFieldPassword extends TextField {
 		super(obj);
 		this.minLength = obj.minLength || 6;
 		this.createButton(
-			{
-				title: "\uf06e",
-			},
+			_.extend(
+				{
+					title: "\uf06e",
+				},
+				obj.buttonRight || {},
+			),
 			"buttonRight",
 		);
 		this.textField.passwordMask = true;
 		var that = this;
-		this.buttonRight.addEventListener("click", function() {
+		this.buttonRight.addEventListener("click", function () {
 			that.textField.passwordMask = !that.textField.passwordMask;
 			that.buttonRight.title = that.textField.passwordMask ? "\uf06e" : "\uf070";
 			that.textField.setPasswordMask(that.textField.passwordMask);

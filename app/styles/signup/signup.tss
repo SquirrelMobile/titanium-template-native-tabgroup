@@ -19,8 +19,12 @@
       textField : {
         hintText : L('form.username'),
       },
+      container : {
+        right : 5
+      },
       type : "textField",
-      required : true
+      required : true,
+      groupId: 1
     },
     {
       id: "email",
@@ -30,8 +34,12 @@
       textField : {
         hintText : L('form.email'),
       },
+      container : {
+        left : 5
+      },
       type : "textFieldEmail",
-      required : true
+      required : true,
+      groupId: 1
     },
     {
       id: "password",
@@ -59,8 +67,7 @@
         hintText : L("form.phone"),
       },
       type : "textFieldPhone",
-      required : true,
-      groupId: 1
+      required : true
     },
     {
       id: "birthday",
